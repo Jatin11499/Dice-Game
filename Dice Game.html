@@ -1,0 +1,40 @@
+<html>
+	<head>
+		<title>Dice Game</title>
+		<link href="css/bootstrap.min.css" rel="stylesheet"></link>
+		<link rel="stylesheet" href="css/style.css" type="text/css"></link>
+	</head>
+	<body>
+		<div class="container text-center">
+			<h1 id="head">JavaScript Dice Game</h1>
+			<div class="row">
+				<div class="col-sm-6">
+					<p>Player 1</p>
+					<img src="images/e1.png" width=150 height=150 id="dice1">
+				</div>
+				<div class="col-sm-6">
+					<p>Player 2</p>
+					<img src="images/e4.png" width=150 height=150 id="dice2">
+				</div>
+			</div>
+			<button class="btn btn-primary" onclick="change()">Click Me</button>
+		</div>
+	</body>
+	<script type="text/javascript">
+		change = () =>
+		{
+			var d1 = Math.ceil(Math.random() * 6);
+			var d2 = Math.ceil(Math.random() * 6);
+			var img1 = `images/e${d1}.png`;
+			var img2 = `images/e${d2}.png`;
+			document.getElementById("dice1").src = img1;
+			document.getElementById("dice2").src = img2;
+			if(d1>d2)
+				document.getElementById("head").innerHTML = "Player 1 wins!";
+			else if(d2>d1)
+				document.getElementById("head").innerHTML = "Player 2 wins!";
+			else
+				document.getElementById("head").innerHTML = "DRAW!";
+		}
+	</script>
+</html>
